@@ -6,7 +6,7 @@
 </p>
 
 <p>
-    listens to other ecosystem workers
+    duckfficer service worker that serves an ipc bridge for communication
 </p>
 
 ## Installation

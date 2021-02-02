@@ -226,7 +226,7 @@ const ipcConnect = async ({ appSpace, clientId, workerId }) => {
     silent: true
   });
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     ipc.connectTo(workerId, () => {
       resolve(ipc.of[workerId]);
     });
@@ -286,7 +286,7 @@ class DuckWorkerClient {
       return ipcDisconnect({ workerId: this.workerId })
     };
     return new DeepProxy({}, {
-      get (target, path, receiver) {
+      get (target, path) {
         if (path === 'then') {
           return
         }
