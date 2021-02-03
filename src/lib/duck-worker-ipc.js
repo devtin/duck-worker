@@ -127,12 +127,12 @@ const execute = async ({ data, socket, workers }) => {
 }
 
 /**
- * @param {String} [appName=<package.json->name>] - the appName (defaults to project's package.json name)
  * @param {Object} workers - workers object mapping to functions
+ * @param {String} [appName=<package.json->name>] - the appName (defaults to project's package.json name)
  * @param {String} [id=worker] - worker id
  * @return {Promise<ipc.server>}
  */
-export async function duckWorkerIpc ({ appName = getAppName, workers, id = 'worker' } = {}) {
+export async function duckWorkerIpc ({ workers, appName = getAppName, id = 'worker' } = {}) {
   await setupIpc({ appName, id })
   const log = await loggerSetup()
 
