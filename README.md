@@ -105,22 +105,24 @@ t.like(r.errorsThrown[0], {
 
 <br><a name="duckWorkerIpc"></a>
 
-### duckWorkerIpc([appName], workers, [id]) ⇒ <code>Promise.&lt;ipc.server&gt;</code>
+### duckWorkerIpc(workers, [appName], [id]) ⇒ <code>Promise.&lt;ipc.server&gt;</code>
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [appName] | <code>String</code> | <code>&lt;package.json-&gt;name&gt;</code> | the appName (defaults to project's package.json name) |
 | workers | <code>Object</code> |  | workers object mapping to functions |
+| [appName] | <code>String</code> | <code>&lt;package.json-&gt;name&gt;</code> | the appName (defaults to project's package.json name) |
 | [id] | <code>String</code> | <code>worker</code> | worker id |
 
 
 <br><a name="duckWorker"></a>
 
-### duckWorker(workerDir) ⇒ <code>exports.&lt;void&gt;</code>
+### duckWorker(workerDir, [appName], [id]) ⇒ <code>exports.&lt;void&gt;</code>
 
 | Param | Type | Description |
 | --- | --- | --- |
 | workerDir | <code>String</code> | the worker dir |
+| [appName] | <code>String</code> | ipc appname |
+| [id] | <code>String</code> | ipc id |
 
 
 * * *

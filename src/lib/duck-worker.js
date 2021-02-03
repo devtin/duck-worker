@@ -20,16 +20,22 @@ const getWorkersFromRaw = async (rawWorkers) => {
 
 /**
  * @param {String} workerDir - the worker dir
+ * @param {String} [appName] - ipc appname
+ * @param {String} [id] - ipc id
  * @return {exports<void>}
  */
 export async function duckWorker ({
-  workerDir
+  workerDir,
+  appName,
+  id
 }) {
   const workersRaw = await jsDirIntoJson(path.resolve(process.cwd(), workerDir), {
     fileLoader: require('esm')(module)
   })
   const workers = await getWorkersFromRaw(workersRaw)
   await duckWorkerIpc({
+    appName,
+    id,
     workers
   })
 }
