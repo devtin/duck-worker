@@ -1,5 +1,5 @@
 /*!
- * duck-worker v1.0.0
+ * duck-worker v1.0.1
  * (c) 2020-2021 Martin Rafael Gonzalez <tin@devtin.io>
  * MIT
  */
