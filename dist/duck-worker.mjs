@@ -1,5 +1,5 @@
 /*!
- * duck-worker v1.0.1
+ * duck-worker v1.0.2
  * (c) 2020-2021 Martin Rafael Gonzalez <tin@devtin.io>
  * MIT
  */
@@ -143,12 +143,12 @@ const execute = async ({ data, socket, workers }) => {
 };
 
 /**
- * @param {String} [appName=<package.json->name>] - the appName (defaults to project's package.json name)
  * @param {Object} workers - workers object mapping to functions
+ * @param {String} [appName=<package.json->name>] - the appName (defaults to project's package.json name)
  * @param {String} [id=worker] - worker id
  * @return {Promise<ipc.server>}
  */
-async function duckWorkerIpc ({ appName = getAppName, workers, id = 'worker' } = {}) {
+async function duckWorkerIpc ({ workers, appName = getAppName, id = 'worker' } = {}) {
   await setupIpc({ appName, id });
   const log = await loggerSetup();
 
@@ -195,16 +195,22 @@ const getWorkersFromRaw = async (rawWorkers) => {
 
 /**
  * @param {String} workerDir - the worker dir
+ * @param {String} [appName] - ipc appname
+ * @param {String} [id] - ipc id
  * @return {exports<void>}
  */
 async function duckWorker ({
-  workerDir
+  workerDir,
+  appName,
+  id
 }) {
   const workersRaw = await jsDirIntoJson(path.resolve(process.cwd(), workerDir), {
     fileLoader: require('esm')(module)
   });
   const workers = await getWorkersFromRaw(workersRaw);
   await duckWorkerIpc({
+    appName,
+    id,
     workers
   });
 }

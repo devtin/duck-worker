@@ -7,7 +7,7 @@
     "worker"
   ],
   "author": "Martin Rafael Gonzalez <tin@devtin.io>",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/duck-worker.js",
   "module": "dist/duck-worker.mjs",
   "license": "MIT",
