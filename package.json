@@ -1,11 +1,20 @@
 {
   "name": "duck-worker",
   "description": "duckfficer service worker that serves an ipc bridge for communication",
+  "keywords": [
+    "duckfficer",
+    "service",
+    "worker"
+  ],
   "author": "Martin Rafael Gonzalez <tin@devtin.io>",
   "version": "1.0.0",
   "main": "dist/duck-worker.js",
   "module": "dist/duck-worker.mjs",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devtin/duck-worker"
+  },
   "scripts": {
     "boot:mongodb": "docker-compose up -d",
     "build": "npm run build:lib && npm run build:docs",
